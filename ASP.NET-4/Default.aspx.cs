@@ -8,6 +8,7 @@ namespace ASP.NET_4
 {
     public partial class _Default : Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -49,6 +50,7 @@ namespace ASP.NET_4
 
         protected void GetDetailCar_Click(object sender, EventArgs e)
         {
+
             string selectedCar = dropDownAutoList.SelectedValue;
 
             if (selectedCar != "null")
@@ -66,6 +68,42 @@ namespace ASP.NET_4
                     SqlDataReader reader = cmd.ExecuteReader();
                     if (reader.Read())
                     {
+                        selectedModel.InnerText = reader["Modello"].ToString();
+                        selectedBasePrice.InnerText = $"Prezzo base: {reader["PrezzoBase"]:N3} €";
+                        selectedImg.Src = reader["Immagine"].ToString();
+                        double totale = 0;
+                        double prezzoBase = Convert.ToDouble(reader["PrezzoBase"]);
+
+                        if (CerchionInLega.Checked)
+                        {
+                            totale += reader["CerchioniInLega"] != DBNull.Value ? Convert.ToDouble(reader["CerchioniInLega"]) : 0;
+                        }
+                        if (climatizzatore.Checked)
+                        {
+                            totale += reader["Climatizzatore"] != DBNull.Value ? Convert.ToDouble(reader["Climatizzatore"]) : 0;
+                        }
+                        if (VerniceCromata.Checked)
+                        {
+                            totale += reader["VerniceCromata"] != DBNull.Value ? Convert.ToDouble(reader["VerniceCromata"]) : 0;
+                        }
+                        if (DoppioAirbag.Checked)
+                        {
+                            totale += reader["DoppioAirbag"] != DBNull.Value ? Convert.ToDouble(reader["DoppioAirbag"]) : 0;
+                        }
+                        if (ABS.Checked)
+                        {
+                            totale += reader["ABS"] != DBNull.Value ? Convert.ToDouble(reader["ABS"]) : 0;
+                        }
+
+                        int anniGaranzia = Convert.ToInt32(garanzia.SelectedValue);
+
+                        if (anniGaranzia > 1 && anniGaranzia < 6)
+                        {
+                            totale += anniGaranzia * (reader["PrezzoGaranzia"] != DBNull.Value ? Convert.ToDouble(reader["PrezzoGaranzia"]) : 0);
+                        }
+
+
+                        selectedTotalPrice.InnerText = "Prezzo Totale: " + (totale + prezzoBase).ToString("N3") + " €";
 
                     }
                 }

@@ -10,7 +10,9 @@
 
          <asp:Button ID="GetDetailCar" class="btn btn-primary " runat="server" Text="Dettagli"  OnClick="GetDetailCar_Click" />
         <div id="divDettaglio"  runat="server">
+            <p id="selectedModel" class="fs-2 mb-0" runat="server"></p>
             <p id="selectedBasePrice" runat="server"></p>
+             <p id="selectedTotalPrice" runat="server"></p>
             <span>Garanzia: </span>
             <asp:DropDownList ID="garanzia" runat="server">
                 <asp:ListItem Value="2">2 anni</asp:ListItem>
@@ -39,15 +41,14 @@
                      <asp:CheckBox ID="DoppioAirbag" runat="server" />
                  </div>
                  <div>
-                     <span>ABS </span>
+                     <span>ABS</span>
                      <asp:CheckBox ID="ABS" runat="server" />
                  </div>
                  <div>
-                     <span>Cerchi in lega </span>
-                     <asp:CheckBox ID="cerchi" runat="server" />
+                     <img src="" id="selectedImg" cssClass="" runat="server"  />
                  </div>
-                 <img src="" id="selectedImg" runat="server" height="400" />
-                 <p id="selectedModel" class="fs-2 mb-0" runat="server"></p>
+                 
+                 
              </div>
          </div>
 

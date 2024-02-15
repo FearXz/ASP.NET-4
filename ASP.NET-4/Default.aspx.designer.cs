@@ -42,6 +42,15 @@ namespace ASP.NET_4
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divDettaglio;
 
         /// <summary>
+        /// Controllo selectedModel.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl selectedModel;
+
+        /// <summary>
         /// Controllo selectedBasePrice.
         /// </summary>
         /// <remarks>
@@ -49,6 +58,15 @@ namespace ASP.NET_4
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl selectedBasePrice;
+
+        /// <summary>
+        /// Controllo selectedTotalPrice.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl selectedTotalPrice;
 
         /// <summary>
         /// Controllo garanzia.
@@ -105,15 +123,6 @@ namespace ASP.NET_4
         protected global::System.Web.UI.WebControls.CheckBox ABS;
 
         /// <summary>
-        /// Controllo cerchi.
-        /// </summary>
-        /// <remarks>
-        /// Campo generato automaticamente.
-        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox cerchi;
-
-        /// <summary>
         /// Controllo selectedImg.
         /// </summary>
         /// <remarks>
@@ -121,14 +130,5 @@ namespace ASP.NET_4
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlImage selectedImg;
-
-        /// <summary>
-        /// Controllo selectedModel.
-        /// </summary>
-        /// <remarks>
-        /// Campo generato automaticamente.
-        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl selectedModel;
     }
 }
