@@ -8,6 +8,49 @@
             <asp:ListItem Value="null">Seleziona un'auto</asp:ListItem>
         </asp:DropDownList>
 
+         <asp:Button ID="GetDetailCar" class="btn btn-primary " runat="server" Text="Dettagli"  OnClick="GetDetailCar_Click" />
+        <div id="divDettaglio"  runat="server">
+            <p id="selectedBasePrice" runat="server"></p>
+            <span>Garanzia: </span>
+            <asp:DropDownList ID="garanzia" runat="server">
+                <asp:ListItem Value="2">2 anni</asp:ListItem>
+                <asp:ListItem Value="3">3 anni</asp:ListItem>
+                <asp:ListItem Value="4">4 anni</asp:ListItem>
+             <asp:ListItem Value="5">5 anni</asp:ListItem>
+         </asp:DropDownList>
+
+             <div class="d-flex flex-column">
+
+                 <div>
+                     <span>CerchionInLega </span>
+                     <asp:CheckBox ID="CerchionInLega" runat="server" />
+                 </div>
+                 <div>
+                     <span>VerniceCromata </span>
+                     <asp:CheckBox ID="VerniceCromata" runat="server" />
+                 </div>
+
+                 <div>
+                     <span>Climatizzatore </span>
+                     <asp:CheckBox ID="climatizzatore" runat="server" />
+                 </div>
+                 <div>
+                     <span>DoppioAirbag </span>
+                     <asp:CheckBox ID="DoppioAirbag" runat="server" />
+                 </div>
+                 <div>
+                     <span>ABS </span>
+                     <asp:CheckBox ID="ABS" runat="server" />
+                 </div>
+                 <div>
+                     <span>Cerchi in lega </span>
+                     <asp:CheckBox ID="cerchi" runat="server" />
+                 </div>
+                 <img src="" id="selectedImg" runat="server" height="400" />
+                 <p id="selectedModel" class="fs-2 mb-0" runat="server"></p>
+             </div>
+         </div>
+
     </main>
 
 </asp:Content>

@@ -10,6 +10,14 @@ namespace ASP.NET_4
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                getAutoDropDownList();
+            }
+
+        }
+        protected void getAutoDropDownList()
+        {
             string connectionString = ConfigurationManager.ConnectionStrings["MyDbConnection"].ToString();
             SqlConnection conn = new SqlConnection(connectionString);
 
@@ -39,34 +47,34 @@ namespace ASP.NET_4
             finally { conn.Close(); }
         }
 
-        //protected void SelectedCar(object sender, EventArgs e)
-        //{
-        //    string selectedCar = dropDownAutoList.SelectedValue;
+        protected void GetDetailCar_Click(object sender, EventArgs e)
+        {
+            string selectedCar = dropDownAutoList.SelectedValue;
 
-        //    if (selectedCar != "null")
-        //    {
-        //        string connectionString = ConfigurationManager.ConnectionStrings["Concessionaria"].ToString();
-        //        SqlConnection conn = new SqlConnection(connectionString);
+            if (selectedCar != "null")
+            {
+                string connectionString = ConfigurationManager.ConnectionStrings["MyDbConnection"].ToString();
+                SqlConnection conn = new SqlConnection(connectionString);
 
-        //        try
-        //        {
-        //            conn.Open();
+                try
+                {
+                    conn.Open();
 
-        //            string query = $"SELECT * FROM Auto WHERE idAuto = {selectedCar}";
+                    string query = $"SELECT * FROM Auto WHERE IDAuto = {selectedCar}";
 
-        //            SqlCommand cmd = new SqlCommand(query, conn);
-        //            SqlDataReader reader = cmd.ExecuteReader();
-        //            while (reader.Read())
-        //            {
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    if (reader.Read())
+                    {
 
-        //            }
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            Response.Write(ex.Message);
-        //        }
-        //        finally { conn.Close(); }
-        //    }
-        //}
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Response.Write(ex.Message);
+                }
+                finally { conn.Close(); }
+            }
+        }
     }
 }
